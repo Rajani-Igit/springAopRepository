@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+    <bean id="calculator" class="com.declrative.around.beans.Calculator"></bean>
+    <bean id="cache" class="com.declrative.around.util.Cache"></bean>
+    <bean id="logingAspect" class="com.declrative.around.aspect.LoggingAspect"></bean>
+    <bean id="cacheingAdvice" class="com.declrative.around.aspect.CacheingAspect">
+      <property name="cache" ref="cache"></property>
+    </bean>
+    <aop:config>
+       <aop:pointcut expression="execution(* com.declrative.around.beans.Calculator.add(..))" id="commonPointCut"/>
+       <aop:aspect ref="logingAspect" order="2" >
+         <aop:around method="log" pointcut-ref="commonPointCut" />
+       </aop:aspect>
+       <aop:aspect ref="cacheingAdvice" order="1">
+         <aop:around method="cache" pointcut-ref="commonPointCut"/>
+       </aop:aspect>
+    </aop:config>
+
+</beans>

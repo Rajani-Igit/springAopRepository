@@ -6,11 +6,13 @@ public class AuthenticationManager {
   private static AuthenticationManager instance;
   private AuthenticationManager() {
 	threadLocal = new ThreadLocal<UserInfo>();
+	 
   }
   
   public synchronized static AuthenticationManager getInstance() {
 	  if(instance == null) {
 		  instance = new AuthenticationManager();
+		 
 	  }
 	  return instance;
   }
