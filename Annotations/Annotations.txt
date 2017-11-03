@@ -1,0 +1,74 @@
+Annotations are used for provideing the conifugration information of the 
+classes to underlying container
+(We can say alternative way of providing configuration information)
+Annotations are not available in market from starting of the spring release
+Later They introduced into it
+ In java also Starting point of time it is not availble.from 1.6 onwards
+ they introduced it.in order to provide the flexiblity to the programmer
+ Before Annotations there are lot of third party libraries are there to provide the
+ metadata information to the container
+ 1)xml editors 
+ ** But incase of core java they provided marker interfaces for provideing 
+    the meta data information to the underlying container 
+ ** If you want serialize a class you have to implement from serialize interface 
+    so that jdk will provide that flexibility to the application 
+ ** Same way in j2ee applications if we provide thw information in xml file 
+    underlying container will manage the application classes
+ But there are some disadvantages are there if go for configuration approach
+ 1)To make you class manage by the container you need to write the more code
+ (Minim 8 tags we have to write to configure a servlet inside container) 
+ 2)We need to leanr different technology (xml file)
+ 3)Deriving the application is very difficult
+ 4)There will be no comipliers are available for precheking purposes
+ 5)There are no IDE support are there like Spring STS
+ 
+ ** Some devlopers raised this conserns about configuration approach
+ Later point of time some third party library vendors come up with an annotations 
+ then J2EE also provided support of annotations.but in one shot they did not provided 
+ every thing.it is incremental support
+ **There are advantages of annotaions are also there
+ 1)These are single words only no need to write line of code 
+ 2) we no need to learn different technology.Bcz it is implemented in java 
+ 3)Deriving the application is easy bcz insource code it self we are writing the every thing
+ 4)When we writing the source code itself it will compile so we no need to do anyserver restarts
+ 5)There are lot of IDE Supports are there.We no need to learn different technology
+ bcz these are normal java classes only
+ 
+ **But after few days while working annotations some people raised their conserns about
+ working with annotations
+ ** There will be some disadvantages are the with annotations and some advantages are 
+ with xml configuration file
+ 
+ **In production environment there are coflicting roles between devloper and deployer
+ Bcz always devlopers will devlop the application in devlopment environmrnt
+ 
+ ** BUt deployer has to change the configaration information it will be deficut for 
+ him to modify the java code
+ 
+ ** For this sun people provided the solution what ever you want if you provide 
+ configration file it will take it from there it will supress the annotations over 
+ configration
+ 
+ ** annotations will not makes our classes as pozofied classes.bcz we need to implement from some classes
+ or interfaces if these are not available at run time our application is in not in a state
+ where it will not run
+ 
+ ** For this Sun people provided some Retention Policy so up to where this annotation 
+ you want to apply you can specify the policy level there
+ 
+ ** In XMl file approach at one shot every information is available about the application
+ ** In Case of entireprise application devlopment it is highly recommended to go for 
+ xml file 
+ ** And every one in our project follows best design and knowing abou the syntaxes
+ and semantics of xml we can happily work with xml configuration approach
+ ** In case of normal or simple application devlopment we have to use annotations 
+ 
+ ** incase of you dont have any source code with you (i.e third party libraries) in this case we can not 
+ use annotations 
+ **And if you want to create more than one bean defination to a class we can not acheive by annotations 
+ ** We can do by xml approach.but there are several problems are there if we go for
+ xml file
+ ** In that situations we can devlop those by using configuration approach by writing a class and configuring
+ remaing classes as beans in side thae class
+ and we can give this class to IOC container to make these classes as beans
+ (Java Configuration Approach)

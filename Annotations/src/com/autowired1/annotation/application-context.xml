@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    <bean id="robot" class="com.autowired1.annotation.Robot">
+      <property name="id" value="20"></property>
+      <property name="type" value="Computers"></property>
+    </bean>
+    <bean id="chip1" class="com.autowired1.annotation.Chip">
+      <qualifier value="chip1"></qualifier>
+      <property name="chipId" value="35"></property>
+      <property name="chipType" value="64Bit"></property>
+    </bean> 
+    
+    <bean id="chip2" class="com.autowired1.annotation.Chip">
+      <qualifier value="chip2"></qualifier>
+      <property name="chipId" value="45"></property>
+      <property name="chipType" value="32Bit"></property>
+    </bean>
+    
+    <bean id="sensor" class="com.autowired1.annotation.Sensor">
+     <property name="sensorId" value="20"></property>
+     <property name="sensorType" value="Signal"></property>
+    </bean>
+    <context:annotation-config></context:annotation-config>
+    
+</beans>
