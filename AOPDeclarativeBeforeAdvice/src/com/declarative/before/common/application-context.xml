@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+    <bean id="loanManager" class="com.declarative.before.beans.LoanManager"></bean>
+    <bean id="auditingAspect" class="com.declarative.before.aspect.AuditingAspect">
+      <property name="authenticationManager" ref="authenticationManager"></property>
+    </bean>
+    <bean id="authenticationManager" class="com.declarative.before.util.AuthenticationManager" factory-method="getInstance"></bean>
+    <bean id="authenticationAspect" class="com.declarative.before.aspect.AuthenticationAspect">
+     <property name="authenticationManager" ref="authenticationManager"></property>
+    </bean>
+    <aop:config>
+     <!-- Auditing logic  -->
+      <aop:aspect ref="auditingAspect">
+        <aop:before method="audit" pointcut="execution(* com.declarative.before.beans.LoanManager.approve(..))"/>
+      </aop:aspect>
+      <!-- Authentication Logic -->
+      <aop:aspect ref="authenticationAspect">
+        <aop:before method="security" pointcut="execution(* com.declarative.before.beans.LoanManager.approve(..))"/>
+      </aop:aspect>
+    </aop:config>
+
+</beans>
