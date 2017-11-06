@@ -12,7 +12,10 @@ public class AuthenticationAspect {
 	  methodName = joinPoint.getSignature().getName();
 	  args = joinPoint.getArgs();
 	  System.out.println(authenticationManager.userInfo.getUserName()+" acessing the method "+methodName+"("+args[0]+")");
-	  if(authenticationManager.userInfo.getUserName().equals("sairam") == false) {
+	 /* if(authenticationManager.userInfo.getUserName().equals("sairam") == false) {
+		  throw new IllegalArgumentException("provide valid userid and password");
+	  }*/
+	  if(authenticationManager.authenticate()) {
 		  throw new IllegalArgumentException("provide valid userid and password");
 	  }
   }

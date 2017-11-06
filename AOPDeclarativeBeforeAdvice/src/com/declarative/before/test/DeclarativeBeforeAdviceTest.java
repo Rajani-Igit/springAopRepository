@@ -12,7 +12,7 @@ public class DeclarativeBeforeAdviceTest {
    public static void main(String[] args) {
 	ApplicationContext context = new ClassPathXmlApplicationContext("com/declarative/before/common/application-context.xml");
 	AuthenticationManager authenticationManager = context.getBean("authenticationManager", AuthenticationManager.class);
-	authenticationManager.login("sairam", "welcome");
+	authenticationManager.login("sairam", "welcome1");
 	LoanManager loanManager = context.getBean("loanManager",LoanManager.class);
 	boolean approve = loanManager.approve("123456");
 	System.out.println("Loan Approved "+approve);

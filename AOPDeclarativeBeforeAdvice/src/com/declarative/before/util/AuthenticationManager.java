@@ -24,8 +24,9 @@ public class AuthenticationManager {
     	threadLocal.set(null);
     }
     public boolean authenticate() {
-    	
-    	return threadLocal.get().getUserName()!="" ? ((UserInfo)threadLocal.get()).getUserName().equals("sairam") && ((UserInfo)threadLocal.get()).getPassword().equals("welcome1"):false;
+    	System.out.println("inside authenticate");
+    	System.out.println("returning the value is  "+ (threadLocal.get().getUserName() !="" ? ((UserInfo)threadLocal.get()).getUserName().equals("sairam") && ((UserInfo)threadLocal.get()).getPassword().equals("welcome"):true));
+    	return threadLocal.get().getUserName()!="" ? ((UserInfo)threadLocal.get()).getUserName().equals("sairam") && ((UserInfo)threadLocal.get()).getPassword().equals("welcome1"):true;
     	/*if(((UserInfo)threadLocal.get()).getUserName().equals("sairam") && ((UserInfo)threadLocal.get()).getPassword().equals("welcome1")) {
     		return true;
     	}*/
