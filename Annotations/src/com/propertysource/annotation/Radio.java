@@ -30,8 +30,8 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:com/propertysource/annotation/radio.properties")
 public class Radio {
 	
-	/*@Autowired
-	Environment env;*/
+	@Autowired
+	Environment env;
 	
 	@Value("${radioId}")
 	private int radioId;
@@ -57,7 +57,7 @@ public class Radio {
   }
 @Override
 public String toString() {
-	//System.out.println("Environment Variable   "+env.getProperty("stationName"));
+	System.out.println("Environment Variable   "+env.getProperty("stationName"));
 	return "Radio [radioId=" + radioId + ", stationName=" + stationName + "]";
 }
    

@@ -59,7 +59,7 @@ Later They introduced into it
  ** In XMl file approach at one shot every information is available about the application
  ** In Case of entireprise application devlopment it is highly recommended to go for 
  xml file 
- ** And every one in our project follows best design and knowing abou the syntaxes
+ ** And every one in our project follows best design and knowing about the syntaxes
  and semantics of xml we can happily work with xml configuration approach
  ** In case of normal or simple application devlopment we have to use annotations 
  

@@ -32,16 +32,18 @@ import org.springframework.core.env.Environment;
 public class AppConfig {
 	@Autowired
     private Environment env;
+	
 	@Bean(autowire=Autowire.BY_TYPE)
 	public Radio radio() {
 		Radio radio = new Radio();
-		radio.setFrequency(Integer.parseInt(env.getProperty("Radio_frequency")));
-		radio.setStationName((env.getProperty("Radio_stationName")));
+		//radio.setFrequency(Integer.parseInt(env.getProperty("Radio_frequency")));
+		//radio.setStationName((env.getProperty("Radio_stationName")));
 		
 		//radio.setFrequency(Integer.parseInt("${Radio_frequency}"));
-		//radio.setStationName(("${Radio_stationName}"));
+		radio.setStationName(("${Radio_stationName}"));
 		return radio;
 	}
+	
 	
 	@Bean
 	public Chip chip() {
@@ -50,4 +52,12 @@ public class AppConfig {
 		chip.setChipType((env.getProperty("Chip_chipType")));
 		return chip;
 	}
+	
+	/*@Bean
+	public Chip chip1() {
+		Chip chip = new Chip();
+		chip.setChipId(Integer.parseInt(env.getProperty("Chip_chipId")));
+		chip.setChipType((env.getProperty("Chip_chipType")));
+		return chip;
+	}*/
 }
