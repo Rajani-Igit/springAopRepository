@@ -4,9 +4,14 @@ public class Radio {
 private int frequency;
 private String stationName;
 private Chip chip;
+private int i;
 public Chip getChip() {
 	return chip;
 }
+public Radio(int i) {
+	this.i = i;
+}
+
 @Override
 public String toString() {
 	return "Radio [frequency=" + frequency + ", stationName=" + stationName + ", chip=" + chip + "]";

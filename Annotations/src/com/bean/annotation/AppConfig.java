@@ -2,6 +2,7 @@ package com.bean.annotation;
 
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -34,8 +35,9 @@ public class AppConfig {
     private Environment env;
 	
 	@Bean(autowire=Autowire.BY_TYPE)
-	public Radio radio() {
-		Radio radio = new Radio();
+	public Radio radio(@Value("10")int i) {
+		
+		Radio radio = new Radio(i);
 		//radio.setFrequency(Integer.parseInt(env.getProperty("Radio_frequency")));
 		//radio.setStationName((env.getProperty("Radio_stationName")));
 		
