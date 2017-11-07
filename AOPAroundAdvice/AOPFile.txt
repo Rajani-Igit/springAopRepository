@@ -1,0 +1,71 @@
+AOP Approaches:-
+----------------
+   1)Progametic AOP Approaches
+   2)Declearative Aspect J  AOP Approaches
+   3)Annotation Aspect J AOP Driven Approaches
+
+Principles of AOP:-
+------------------
+    1)Aspect 
+    2)Advice
+    3)Pointcut
+    4)Joinpoint
+    5)Proxy
+    6)Weaving
+    7)Target
+
+Spring with Aspect J Integration:-
+----------------------------------
+
+  ##---> AOP(is A Programetic paradigam we can apply this Paradigam in Applications independent of Language)
+         Incase of Normal Applications Processbased Paradigam but incase of Java Methods inside classes
+
+        1)Aspect is a piece of code that we can place inside a method or class
+         Here we will write inside a class means inside a method.bcz these are acess points in java
+
+Combinations of Spring with AspectJ:-
+------------------------------------ 
+
+   1)Aspect     :- It is a CrossCutting Logic we want to Advice to a Target class
+   2)Advice     :- (The way we want to apply/advice this crosscutting logic/aspect inside the target class)
+         ## :-->Types of Advices:-
+                       1)Around
+                       2)Before
+                       3)After
+                       4)Throws	
+                       
+   3)Pointcut   :- A group of JoinPoints or combination of JointPoints where we can advice our Aspect call it as JointPoint
+         ## :--> Types of Pointcuts:-
+                      1)StaticPointCut
+                      2)DynamicPointCut 
+4)Joinpoint  :-Only Method Level incase of SpringAOP (These are the Possible places where we can advice our aspect inside the Target class)(Only At method level)
+5)Proxy      :-Combination of Aspect Logic And Target class
+6)Weaving    :-The Process of combining Taret class with Aspect logic is nothing but Weaving Process
+7)Target     :-This is the place where we camn advice out aspect
+
+
+
+
+
+PCDs (Proceeding Joinpoint Designators):-
+-----------------------------------------
+
+execution(acessModifier package.className.method(args)) --->till method we have to provide
+within(acessModifier packageName.className) --->upto the basepackage and it will compare by fulluQualified classNames with Regular Expressions
+target(acessModifier packageName.className) --->it will compare by classTypes
+this(acessModifier )  --> it will compare by object types
+args(args ) if at all you have some override methods you can specify that by provideing specific no on of arguments of the method
+
+OGNL(Object Graph Navigation Language)
+
+
+Areas we can apply AOP:-
+------------------------
+
+1)Logging
+2)CentralCacheing
+3)Performence Checking
+4)Notifications(Sending Mail or Sending SMS )
+5)Security
+6)Transactions
+7)Auditing
