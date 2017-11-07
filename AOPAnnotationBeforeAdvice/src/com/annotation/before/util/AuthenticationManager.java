@@ -1,5 +1,8 @@
-package com.declarative.before.util;
+package com.annotation.before.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AuthenticationManager {
 	public UserInfo userInfo;
 	private ThreadLocal< UserInfo> threadLocal;
@@ -7,6 +10,7 @@ public class AuthenticationManager {
     private AuthenticationManager() {
     	threadLocal = new ThreadLocal<>();
     }
+    
     
     public synchronized static AuthenticationManager getInstance() {
 	   if(instance == null) {
@@ -16,6 +20,7 @@ public class AuthenticationManager {
     }
 
     public void login(String userName , String password) {
+    	//System.out.println("inside login method");
     	userInfo = new UserInfo(userName, password);
     	threadLocal.set(userInfo);
     }
