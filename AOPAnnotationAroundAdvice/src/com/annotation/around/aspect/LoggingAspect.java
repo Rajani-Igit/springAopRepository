@@ -7,8 +7,14 @@ import org.springframework.core.annotation.Order;
 
 import com.annotation.around.util.CommonAspect;
 
+/**
+ * This Aspect class and Cacheing Aspect class contains common pcd or Pointcut so insted of declaring two times inside the 
+ * two different classes we are taking a abstract class and writing this pointcut on top a method.
+ * And let your class extend from that abstract class and provice that method 
+ */
 @Aspect
 @Order(2)
+
 public class LoggingAspect extends CommonAspect {
    /*Particular Method This PCD will be applicable*/
    //@Around(value="execution(* com.annotation.around.beans.Calculator.add(int,int))")
