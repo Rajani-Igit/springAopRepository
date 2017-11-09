@@ -5,7 +5,7 @@ import org.aspectj.lang.annotation.Pointcut;
 
 public abstract class CommonAspect {
 	 
-	 @Pointcut(value="execution(* com.annotation.around.beans.Calculator.add(int,int))")
+	 @Pointcut(value="execution(* com.annotation.around.beans.Calculator.add(..)) && args(k,l,m)" ) 
     public void common() {
 	  
    } 

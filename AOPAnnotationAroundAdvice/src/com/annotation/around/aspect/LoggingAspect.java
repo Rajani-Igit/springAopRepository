@@ -3,6 +3,9 @@ package com.annotation.around.aspect;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.weaver.patterns.ArgsAnnotationPointcut;
+import org.aspectj.weaver.patterns.ArgsPointcut;
 import org.springframework.core.annotation.Order;
 
 import com.annotation.around.util.CommonAspect;
@@ -12,10 +15,11 @@ import com.annotation.around.util.CommonAspect;
  * two different classes we are taking a abstract class and writing this pointcut on top a method.
  * And let your class extend from that abstract class and provice that method 
  */
-@Aspect
+@Aspect()
 @Order(2)
 
 public class LoggingAspect extends CommonAspect {
+	
    /*Particular Method This PCD will be applicable*/
    //@Around(value="execution(* com.annotation.around.beans.Calculator.add(int,int))")
    
@@ -28,8 +32,13 @@ public class LoggingAspect extends CommonAspect {
    /*For A Particular Object Type it will be Applicable(It will compare Two Object type references)*/
    //@Around(value="this(com.annotation.around.beans.Calculator)")
 	
-	@Around(value="common()")
-    public Object log(ProceedingJoinPoint proceedingJoinPoint) {
+	/*if you want to apply the args pcd, we can not achieve this by writing common pcd by extending from an abstract class and writing the 
+     * pcd over the method.we can achive this by writing at the individual
+     */
+	//@Around(value="common()")
+	 @Around(value="execution(* com.annotation.around.beans.Calculator.add(..)) && args(k,l,m)" ) 
+	
+    public Object log(ProceedingJoinPoint proceedingJoinPoint,int k,int l,int m) {
 	  String methodName = null;
 		Object[] args = null;
 		Object currentObj = null;

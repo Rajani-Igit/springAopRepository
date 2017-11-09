@@ -44,9 +44,6 @@ Combinations of Spring with AspectJ:-
 7)Target     :-This is the place where we camn advice out aspect
 
 
-
-
-
 PCDs (Proceeding Joinpoint Designators):-
 -----------------------------------------
 

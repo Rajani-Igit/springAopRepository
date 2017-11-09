@@ -23,7 +23,7 @@ public class CacheingAspect extends CommonAspect {
 
 	  /*Particular Method This PCD will be applicable*/
 	  //@Around(value="execution(* com.annotation.around.beans.Calculator.add(int,int))")
-	    @Around(value="common()")
+	  
 	  
 	   /*For A Particular class Type it will be Applicable(It will compare by Class Types References)*/
 	   //@Around(value="target(com.annotation.around.beans.Calculator)")
@@ -34,9 +34,12 @@ public class CacheingAspect extends CommonAspect {
 	   /*For A Particular Object Type it will be Applicable(It will compare Two Object type references)*/
 	   //@Around(value="this(com.annotation.around.beans.Calculator)")
 	
-	
-	
-    public Object cache(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+	    /*if you want to apply the args pcd, we can not achieve this by writing common pcd by extending from an abstract class and writing the 
+	     * pcd over the method.we can achive this by writing at the individual
+	     *  */
+       //@Around(value="common()")
+	     @Around(value="execution(* com.annotation.around.beans.Calculator.add(..)) && args(k,l,m)" ) 
+    public Object cache(ProceedingJoinPoint proceedingJoinPoint,int k,int l,int m) throws Throwable {
 	  
 	   String methodName = null;
 	   Object[] args = null;
