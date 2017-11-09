@@ -34,8 +34,11 @@ public class LoggingAspect extends CommonAspect {
 	
 	/*if you want to apply the args pcd, we can not achieve this by writing common pcd by extending from an abstract class and writing the 
      * pcd over the method.we can achive this by writing at the individual
+     * That is the reason we commented @Around(value ="common()")
      */
 	//@Around(value="common()")
+	
+	//we are commenting this bcz to achive the same thing withe help of configuration file also 
 	 @Around(value="execution(* com.annotation.around.beans.Calculator.add(..)) && args(k,l,m)" ) 
 	
     public Object log(ProceedingJoinPoint proceedingJoinPoint,int k,int l,int m) {

@@ -12,5 +12,20 @@
     <bean id="cacheingAspect" class="com.annotation.around.aspect.CacheingAspect">
        <property name="cache" ref="cache"></property>
     </bean>  
+    
+    
+   <!-- 
+   This we we can make around advice to a method with args pcd means with particular no of parameter
+    <aop:config>
+      <aop:pointcut expression="execution(* com.annotation.around.beans.Calculator.add(..)) and args(k,l,m)" id="common"/>
+      <aop:aspect ref="cacheingAspect" order="1">
+        <aop:around method="cache" pointcut-ref="common"/>
+      </aop:aspect>
+      
+      <aop:aspect ref="loggingAspect" order="2">
+        <aop:around method="log" pointcut-ref="common"/>
+      </aop:aspect>
+    </aop:config> -->
+    
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
