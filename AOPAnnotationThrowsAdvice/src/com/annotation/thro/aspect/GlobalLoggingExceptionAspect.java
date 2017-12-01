@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class GlobalLoggingExceptionAspect {
 	
-   @AfterThrowing(pointcut="target(com.annotation.thro.aspect.GlobalLoggingExceptionAspect)",throwing="iae")
+   @AfterThrowing(pointcut="target(com.annotation.thro.beans.Thrower)",throwing="iae")
    public void exceptionLog(JoinPoint jp ,IllegalArgumentException iae) {
 	   String methodName = null;
 	   Object[] args = null;
