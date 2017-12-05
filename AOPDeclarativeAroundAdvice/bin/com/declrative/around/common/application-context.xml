@@ -18,6 +18,7 @@
        <aop:aspect ref="cacheingAdvice" order="1">
          <aop:around method="cache" pointcut-ref="commonPointCut"/>
        </aop:aspect>
+       
     </aop:config>
 
 </beans>
